@@ -1,6 +1,7 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
+#include "dashboard.h"
 #include <string>
 using namespace std;
 
@@ -24,6 +25,8 @@ class TemperaturSensor:public Sensor
 {
 
 public:
+    TemperaturSensor();
+    ~TemperaturSensor();
     string getSensorType();
     void fetchData(double a[]);
     int dataSize();

@@ -1,4 +1,5 @@
 #include "sensor.h"
+#include "dashboard.h"
 
 TemperaturSensor::TemperaturSensor()
 {
@@ -32,4 +33,33 @@ void TemperaturSensor::fetchData(double a[])
 int TemperaturSensor::dataSize()
 {
     return 5;
+}
+
+
+void TemperaturSensor::attach(Dashboard* d)
+{
+    if(observer[9] == NULL)
+    {
+       //Mit Schleife ersten freien Platz in Observer-Array suchen
+        for(int i = 0 ; i < 10 ; i++)
+           if(observer[i] == NULL)
+                observer[i] = d;
+    }
+
+}
+
+void TemperaturSensor::detach(Dashboard* d)
+{
+
+}
+
+void TemperaturSensor::notify()
+{
+
+}
+
+int TemperaturSensor::getState()
+{
+    //ToDo
+    return 999;
 }
