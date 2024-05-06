@@ -3,6 +3,8 @@
 
 #include "dashboard.h"
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 
@@ -23,6 +25,8 @@ public:
 
 class TemperaturSensor:public Sensor
 {
+private:
+    double data[10];
 
 public:
     TemperaturSensor();
