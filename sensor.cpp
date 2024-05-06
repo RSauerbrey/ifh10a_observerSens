@@ -38,23 +38,19 @@ int TemperaturSensor::dataSize()
 
 void TemperaturSensor::attach(Dashboard* d)
 {
-    if(observer[9] == NULL)
+    //Mit Schleife ersten freien Platz in Observer-Array suchen
+    int i = 0;
+    do
     {
-        //Mit Schleife ersten freien Platz in Observer-Array suchen
-        int i = 0;
-        do
+        if(observer[i] == NULL)
         {
-            if(observer[i] == NULL)
-            {
-                observer[i] = d;
-                cout << "i: " << i << " : " << d << endl;
-                break;
-            }
-            else
-                i++;
-        }while(i < 10);
-    }
-
+            observer[i] = d;
+            cout << "i: " << i << " : " << d << endl;
+            break;
+        }
+        else
+            i++;
+    }while(i < 10);
 }
 
 void TemperaturSensor::detach(Dashboard* d)
