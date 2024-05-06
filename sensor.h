@@ -11,7 +11,7 @@ using namespace std;
 class Sensor
 {
 protected:
-    Dashboard* observer[10];
+    Dashboard* observer[10] = {NULL};
     int state;
 public:
     virtual string getSensorType() = 0;

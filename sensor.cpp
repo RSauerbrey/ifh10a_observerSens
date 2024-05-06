@@ -55,7 +55,30 @@ void TemperaturSensor::attach(Dashboard* d)
 
 void TemperaturSensor::detach(Dashboard* d)
 {
+    //Finde Index der Position von d
+    int startIndex = -1;
+    int endIndex = 9;
 
+    for(int i = 0 ; i<10; i++)
+        if(observer[i] == d)
+            startIndex = i;
+        else if(observer[i] == NULL)
+        {
+            endIndex = i;
+            break;
+        }
+    // Nur falls das Element gefunden wurde
+    if(startIndex >= 0)
+    {
+        cout << "startIndex: "<<startIndex<<" endIndex: "<<endIndex<< endl;
+        // Lösche Element durch Überschreiben
+        for(int i = startIndex; i < endIndex  ; i++)
+        {
+            cout << "i: " << i << " alt: " << observer[i] << " neu: " << observer[i+1] << endl;
+            observer[i] = observer[i+1];
+        }
+        observer[endIndex] = NULL;
+    }
 }
 
 void TemperaturSensor::notify()
