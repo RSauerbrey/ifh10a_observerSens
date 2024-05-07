@@ -83,7 +83,9 @@ void TemperaturSensor::detach(Dashboard* d)
 
 void TemperaturSensor::notify()
 {
-
+    for(int i=0 ; i<10;i++)
+        if(observer[i]!=NULL)
+            observer[i]->update();
 }
 
 int TemperaturSensor::getState()

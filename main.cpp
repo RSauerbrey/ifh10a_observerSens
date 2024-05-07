@@ -15,6 +15,7 @@ int main()
         t->attach(d[i]);
     }
 
+    t->notify();
     cout << "-------------------------\n";
     t->detach(d[0]);
     cout << "-------------------------\n";
@@ -25,6 +26,8 @@ int main()
     t->detach(d[4]);
     cout << "-------------------------\n";
     t->detach(d[4]);
+
+    t->notify();
 
     return 0;
 } 
